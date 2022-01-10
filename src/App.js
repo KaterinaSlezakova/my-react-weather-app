@@ -5,7 +5,11 @@ export default function App() {
     <div className="App">
       <h1>Weather application</h1>
       This project was coded by{" "}
-      <a href="www.linkedin.com/in/kslezakova" target="_blank" rel="noreferrer">
+      <a
+        href="https://www.linkedin.com/in/kslezakova/"
+        target="_blank"
+        rel="noreferrer"
+      >
         Katerina Slezakova
       </a>{" "}
       and is{" "}
