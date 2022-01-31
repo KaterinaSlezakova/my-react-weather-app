@@ -1,3 +1,6 @@
+
+import "./CurrentWeatherCon.css";
+
 export default function CurrentWeatherCon() {
   return (
     <div className="CurrentWeatherCon">

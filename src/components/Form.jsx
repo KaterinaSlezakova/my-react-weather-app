@@ -1,4 +1,6 @@
-import react from "react";
+
+
+import "./Form.css";
 
 export default function Form() {
   return (
