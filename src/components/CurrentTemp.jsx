@@ -1,6 +1,6 @@
 import "./CurrentTemp.css";
 
-export default function CurrentTemp() {
+export default function CurrentTemp(props) {
   return (
     <div className="CurrentTemp">
       <img
@@ -8,7 +8,7 @@ export default function CurrentTemp() {
         alt="mostly cloudy"
       />
       <div className="temperature">
-        <span className="currentTemp">6</span>
+        <span className="currentTemp">{Math.round(props.temperature)}</span>
         <span className="units">
           <span className="celsious">°C </span>|
           <span className="fahrenheit"> °F</span>
