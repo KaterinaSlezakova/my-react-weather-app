@@ -1,4 +1,4 @@
-img {
+.CurrentTemp img {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -6,18 +6,21 @@ img {
     vertical-align: top;
     
 }
-.temp {
-  
+.currentTemp {
     font-size: 48px;
     line-height: 60px;
     padding-left: 10px;
-    font-weight: 400;
+    color: #202124;
 }
-.values {
+.units {
     font-size: 16px;
     line-height: 24px;
     display: inline-block;
     vertical-align: top;
-    margin-top: 6px;
     padding-left: 6px;
+    margin-top: 6px;
+
+}
+.temperature {
+  display:inline;
 }

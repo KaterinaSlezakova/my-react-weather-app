@@ -7,11 +7,13 @@ export default function CurrentTemp() {
         src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
         alt="mostly cloudy"
       />
-      <span className="temp">6</span>
-      <span className="values">
-        <span className="celsious">°C </span>|
-        <span className="fahrenheit"> °F</span>
-      </span>
+      <div className="temperature">
+        <span className="currentTemp">6</span>
+        <span className="units">
+          <span className="celsious">°C </span>|
+          <span className="fahrenheit"> °F</span>
+        </span>
+      </div>
     </div>
   );
 }

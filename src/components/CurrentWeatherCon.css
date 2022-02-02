@@ -1,4 +1,9 @@
 .CurrentWeatherCon ul {
-    font-size: 12px;
-    line-height: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 10px 0 0 0px;
+  color: #70757a;
+  list-style: none;
+  padding-left: 0;
+  
 }

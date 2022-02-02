@@ -11,13 +11,13 @@ export default function Weather() {
     <div className="Weather">
       <Form />
       <div className="row">
-        <div className="col-3">
+        <div className="col-4">
           <CurrentTemp />
         </div>
-        <div className="col-3">
+        <div className="col-4">
           <CurrentWeatherCon />
         </div>
-        <div className="col-6">
+        <div className="col-4 text-end">
           <Overview />
         </div>
       </div>

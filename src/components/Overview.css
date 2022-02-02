@@ -1,13 +1,18 @@
-h3 {
-    font-size: 22px;
-    line-height: 26px;
-    font-family: Arial, Helvetica, sans-serif;
+.Overview h3 {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #202124;
+  margin: 0px;
 }
-ul {
-    list-style: none;
-    padding: 0;
-    font-size: 16px;
-    color: #70757A;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 20px;
+.Overview ul {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  color: #70757a;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 20px;
+}
+.Overview {
+  margin: 5px 5px 0 0;
 }
