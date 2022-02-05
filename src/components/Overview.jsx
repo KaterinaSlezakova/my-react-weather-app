@@ -1,13 +1,13 @@
 
 import "./Overview.css";
 
-export default function Overview() {
+export default function Overview(props) {
   return (
     <div className="Overview">
-      <h3>Slavkov u Brna</h3>
+      <h3>{props.city}</h3>
       <ul>
-        <li>Sunday 21:07</li>
-        <li>Mostly cloudy</li>
+        <li>{props.date}</li>
+        <li className="text-capitalize">{props.description}</li>
       </ul>
     </div>
   );

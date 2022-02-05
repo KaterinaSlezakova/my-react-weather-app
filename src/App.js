@@ -1,4 +1,6 @@
+
 import "./App.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Weather from "./components/Weather";
 
 export default function App() {

@@ -1,13 +1,12 @@
 
 import "./CurrentWeatherCon.css";
 
-export default function CurrentWeatherCon() {
+export default function CurrentWeatherCon(props) {
   return (
     <div className="CurrentWeatherCon">
       <ul>
-        <li>Precipitation: 10 %</li>
-        <li>Humidity: 55 %</li>
-        <li>Wind: 31 km/h</li>
+        <li>Humidity: {props.humidity} %</li>
+        <li>Wind: {Math.round(props.wind)} km/h</li>
       </ul>
     </div>
   );

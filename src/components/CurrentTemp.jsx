@@ -4,8 +4,8 @@ export default function CurrentTemp(props) {
   return (
     <div className="CurrentTemp">
       <img
-        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-        alt="mostly cloudy"
+        src={props.icon}
+        alt={props.description}
       />
       <div className="temperature">
         <span className="currentTemp">{Math.round(props.temperature)}</span>
