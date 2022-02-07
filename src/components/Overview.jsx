@@ -6,7 +6,7 @@ export default function Overview(props) {
     <div className="Overview">
       <h3>{props.city}</h3>
       <ul>
-        <li>{props.date}</li>
+        <li></li>
         <li className="text-capitalize">{props.description}</li>
       </ul>
     </div>

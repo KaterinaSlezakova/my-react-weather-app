@@ -3,16 +3,17 @@ import Form from "./Form";
 import Overview from "./Overview";
 import CurrentTemp from "./CurrentTemp";
 import CurrentWeatherCon from "./CurrentWeatherCon";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 
 import "./Weather.css";
 
 export default function Weather() {
-  const [weatherData, setWeatherData] = useState({ loaded:"false" });
+  const [weatherData, setWeatherData] = useState({ loaded: false });
 
   function handleResponse(response) {
-    console.log(response.data);
+  
     setWeatherData({
       loaded: true,
       temperature: response.data.main.temp,
@@ -20,9 +21,9 @@ export default function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon,
-      date:"Sunday 21:00"
-    })
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      date: new Date(response.data.dt * 1000),
+    });
   }
   if (weatherData.loaded) {
     return (
@@ -32,29 +33,29 @@ export default function Weather() {
           <div className="col-4">
             <CurrentTemp
               temperature={weatherData.temperature}
-              icon={weatherData.icon}
+              icon={weatherData.iconUrl}
               description={weatherData.description}
             />
           </div>
-          <div className="col-3">
+          <div className="col-4">
             <CurrentWeatherCon
               wind={weatherData.wind}
-              rain={weatherData.humidity}
+              humidity={weatherData.humidity}
             />
           </div>
-          <div className="col-5 text-end">
+          <div className="col-4 text-end">
             <Overview
               city={weatherData.city}
               description={weatherData.description}
-              date={weatherData.date}
             />
+            <FormattedDate  date={weatherData.date}/>
           </div>
         </div>
       </div>
     );
   } else {
-    const apiKey = `2fe472309e4eca35c3771be7be704291`;
-    let city = "Tokyo";
+    const apiKey = "375b17b86a7f9a868e0d0a3ab5fe16bd";
+    let city = "Paris";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
