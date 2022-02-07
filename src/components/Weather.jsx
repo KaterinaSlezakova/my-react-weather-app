@@ -22,11 +22,8 @@ export default function Weather() {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
       date:"Sunday 21:00"
-
     })
-
   }
-
   if (weatherData.loaded) {
     return (
       <div className="Weather">
