@@ -3,7 +3,7 @@ import Form from "./Form";
 import Overview from "./Overview";
 import CurrentTemp from "./CurrentTemp";
 import CurrentWeatherCon from "./CurrentWeatherCon";
-import FormattedDate from "./FormattedDate";
+import Spotify from "./Spotify";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 
@@ -22,7 +22,8 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-      date: new Date(response.data.dt * 1000),
+      time: new Date(response.data.dt * 1000),
+      
     });
   }
   if (weatherData.loaded) {
@@ -37,7 +38,7 @@ export default function Weather() {
               description={weatherData.description}
             />
           </div>
-          <div className="col-4">
+          <div className="col-3">
             <CurrentWeatherCon
               wind={weatherData.wind}
               humidity={weatherData.humidity}
@@ -47,9 +48,10 @@ export default function Weather() {
             <Overview
               city={weatherData.city}
               description={weatherData.description}
+              time={weatherData.time}
             />
-            <FormattedDate  date={weatherData.date}/>
           </div>
+          <Spotify />
         </div>
       </div>
     );
