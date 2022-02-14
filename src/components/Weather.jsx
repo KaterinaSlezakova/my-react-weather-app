@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Form from "./Form";
 import Overview from "./Overview";
 import CurrentTemp from "./CurrentTemp";
-import CurrentWeatherCon from "./CurrentWeatherCon";
-import Spotify from "./Spotify";
+import Details from "./Details";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 
@@ -13,6 +12,7 @@ export default function Weather() {
   const [weatherData, setWeatherData] = useState({ loaded: false });
 
   function handleResponse(response) {
+    console.log(response.data);
   
     setWeatherData({
       loaded: true,
@@ -23,7 +23,9 @@ export default function Weather() {
       wind: response.data.wind.speed,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       time: new Date(response.data.dt * 1000),
-      
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000)
+    
     });
   }
   if (weatherData.loaded) {
@@ -39,9 +41,11 @@ export default function Weather() {
             />
           </div>
           <div className="col-3">
-            <CurrentWeatherCon
+            <Details
               wind={weatherData.wind}
               humidity={weatherData.humidity}
+              sunrise={weatherData.sunrise}
+              sunset={weatherData.sunset}
             />
           </div>
           <div className="col-4 text-end">
@@ -51,13 +55,12 @@ export default function Weather() {
               time={weatherData.time}
             />
           </div>
-          <Spotify />
         </div>
       </div>
     );
   } else {
     const apiKey = "375b17b86a7f9a868e0d0a3ab5fe16bd";
-    let city = "Paris";
+    let city = "Slavkov u Brna";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
