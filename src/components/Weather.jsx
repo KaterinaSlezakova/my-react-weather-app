@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Form from "./Form";
 import Overview from "./Overview";
 import CurrentTemp from "./CurrentTemp";
 import Details from "./Details";
@@ -8,12 +7,24 @@ import { BallTriangle } from "react-loader-spinner";
 
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [city, setCity] = useState(defaultCity);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    search(city);
+  }
+  function handleCityChange(e) {
+    setCity(e.target.value);
+  }
+  function search() {
+    const apiKey = "375b17b86a7f9a868e0d0a3ab5fe16bd";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   function handleResponse(response) {
-    console.log(response.data);
-  
     setWeatherData({
       loaded: true,
       temperature: response.data.main.temp,
@@ -24,14 +35,32 @@ export default function Weather() {
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       time: new Date(response.data.dt * 1000),
       sunrise: new Date(response.data.sys.sunrise * 1000),
-      sunset: new Date(response.data.sys.sunset * 1000)
-    
+      sunset: new Date(response.data.sys.sunset * 1000),
     });
   }
   if (weatherData.loaded) {
     return (
       <div className="Weather">
-        <Form />
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                onChange={handleCityChange}
+                type="search"
+                placeholder="Search a city"
+                className="form-control"
+                autoFocus="on"
+              />
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
         <div className="row">
           <div className="col-4">
             <CurrentTemp
@@ -59,11 +88,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    const apiKey = "375b17b86a7f9a868e0d0a3ab5fe16bd";
-    let city = "Slavkov u Brna";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return (
       <div>
         <BallTriangle color="#0B5ED7" height={80} width={80} />
