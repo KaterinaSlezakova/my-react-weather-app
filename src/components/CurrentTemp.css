@@ -1,16 +1,20 @@
-.CurrentTemp img {
+.CurrentTemp {
+    display: flex;
+}
+.CurrentTemp canvas {
     display: inline-block;
-    height: 60px;
-    width: 60px;
-    margin-top: unset;
-    vertical-align: top;
+    margin-top: 5px;
     
 }
-.currentTemp {
+.temperature {
+  display:flex;
+}
+.tempValue {
     font-size: 48px;
     line-height: 60px;
     padding-left: 10px;
     color: #202124;
+    font-weight:400;
 }
 .units {
     font-size: 16px;
@@ -18,8 +22,5 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 6px;
+}
 
-}
-.temperature {
-  display:inline;
-}

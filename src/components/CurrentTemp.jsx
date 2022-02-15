@@ -1,14 +1,12 @@
 import "./CurrentTemp.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentTemp(props) {
   return (
     <div className="CurrentTemp">
-      <img
-        src={props.icon}
-        alt={props.description}
-      />
+      <WeatherIcon code={props.icon} />
       <div className="temperature">
-        <span className="currentTemp">{Math.round(props.temperature)}</span>
+        <span className="tempValue">{Math.round(props.temperature)}</span>
         <span className="units">
           <span className="celsious">°C </span>|
           <span className="fahrenheit"> °F</span>
