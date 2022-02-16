@@ -7,8 +7,6 @@ export default function Details(props) {
   let sunsetHours = props.sunset.getHours();
   let sunsetMinutes = props.sunset.getMinutes();
 
- 
-
   return (
     <div className="Details">
       <ul>

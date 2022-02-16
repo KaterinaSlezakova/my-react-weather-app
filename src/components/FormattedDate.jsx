@@ -1,5 +1,3 @@
-
-
 export default function FormattedDate({ time }) {
   let days = ["Sun", "Mon", "Thu", "Wed", "Thur", "Fri", "Sat"];
   let months = [
@@ -29,7 +27,6 @@ export default function FormattedDate({ time }) {
       {hours < 10 ? `0${hours}` : hours}:
       {minutes < 10 ? `0${minutes}` : minutes}
       {""}
-      <div></div>
     </div>
   );
 }

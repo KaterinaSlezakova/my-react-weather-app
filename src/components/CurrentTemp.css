@@ -4,11 +4,8 @@
 .CurrentTemp canvas {
     display: inline-block;
     margin-top: 5px;
-    
 }
-.temperature {
-  display:flex;
-}
+
 .tempValue {
     font-size: 48px;
     line-height: 60px;
@@ -22,5 +19,12 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 6px;
+}
+.units a {
+    color:black;
+    text-decoration: none;
+}
+.units a :hover {
+    cursor: pointer;
 }
 

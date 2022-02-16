@@ -19,8 +19,7 @@ export default function App() {
             target="_blank"
             rel="noreferrer"
           >
-            Katerina Slezakova {" "}
-            <FontAwesomeIcon icon={faLinkedin} />
+            Katerina Slezakova <FontAwesomeIcon icon={faLinkedin} />
           </a>{" "}
           and is{" "}
           <a
