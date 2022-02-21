@@ -5,7 +5,7 @@ import WeatherTemperature from "./WeatherTemperature";
 export default function CurrentTemp(props) {
   return (
     <div className="CurrentTemp">
-      <WeatherIcon code={props.icon} />
+      <WeatherIcon code={props.icon} size={52} />
       <WeatherTemperature celsius={props.temperature} />
     </div>
   );

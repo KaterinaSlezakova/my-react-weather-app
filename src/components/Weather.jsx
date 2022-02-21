@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
+import DailyForecast from "./DailyForecast";
 
 import "./Weather.css";
 
@@ -60,9 +61,8 @@ export default function Weather({ defaultCity }) {
             </div>
           </div>
         </form>
-        <WeatherInfo
-          data={weatherData}
-        />
+        <WeatherInfo data={weatherData} />
+        <DailyForecast />
       </div>
     );
   } else {
