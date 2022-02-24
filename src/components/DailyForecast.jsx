@@ -4,10 +4,13 @@ import axios from "axios";
 import ForecastOneDay from "./ForecastOneDay";
 
 export default function DailyForecast({ coordinates }) {
+
   const [loaded, setLoaded] = useState(false);
-  const [forecastData, setForecastData] = useState(null);
+  const [forecast, setForecast] = useState(null);
+
   function handleResponse(response) {
-    setForecastData(response.data.daily);
+     setLoaded(true); 
+    setForecast(response.data.daily);
     //({
     //loaded: true,
     // tempMax: response.data.daily[0].temp.max,
@@ -15,7 +18,7 @@ export default function DailyForecast({ coordinates }) {
     // day: response.data.daily[0].dt,
     //icon: response.data.daily[0].weather[0].icon,
     //});
-    setLoaded(true);
+    
   }
 
   if (loaded) {
@@ -24,19 +27,20 @@ export default function DailyForecast({ coordinates }) {
         <div className="container">
           <div className="row">
             <div className="col Forecast-days">
-              <ForecastOneDay data={forecastData[0]} />
+              <ForecastOneDay data={forecast[0]} />
             </div>
           </div>
         </div>
       </div>
     );
   } else {
-    const apiKey = "d329e1092b2b890a54f6b260b16bfdbe";
+    const apiKey = "375b17b86a7f9a868e0d0a3ab5fe16bd";
     let lat = coordinates.lat;
     let lon = coordinates.lon;
+    
     const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-
+   
     return "Loading";
   }
 }
