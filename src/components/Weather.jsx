@@ -40,7 +40,7 @@ export default function Weather({ defaultCity }) {
   }
 
   if (weatherData.loaded) {
-    console.log(weatherData.coordinates)
+   
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
