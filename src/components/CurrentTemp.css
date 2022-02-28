@@ -1,5 +1,7 @@
 .CurrentTemp {
     display: flex;
+    height:100px;
+    margin-left: 20px;
 }
 .CurrentTemp canvas {
     display: inline-block;
@@ -7,14 +9,14 @@
 }
 
 .tempValue {
-    font-size: 48px;
+    font-size: 57px;
     line-height: 60px;
     padding-left: 10px;
     color: #202124;
     font-weight:400;
 }
 .units {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 24px;
     display: inline-block;
     vertical-align: top;

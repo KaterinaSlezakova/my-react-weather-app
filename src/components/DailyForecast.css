@@ -1,11 +1,11 @@
 .DailyForecast {
     text-align: center;
+    font-size: 16px;
 }
 .Forecast-min-temp {
     opacity: 0.7;
     margin-left: 5px;
 }
 .Forecast-days{
-background-color:#C4D9F5;
-border-radius: 5px;
+margin-top: 30px;
 }

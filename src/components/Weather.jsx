@@ -18,7 +18,6 @@ export default function Weather({ defaultCity }) {
     setCity(e.target.value);
   }
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       loaded: true,
       coordinates: response.data.coord,
@@ -41,6 +40,7 @@ export default function Weather({ defaultCity }) {
   }
 
   if (weatherData.loaded) {
+    console.log(weatherData.coordinates)
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -57,9 +57,9 @@ export default function Weather({ defaultCity }) {
             <div className="col-3">
               <input
                 type="submit"
-                value="Search"
                 className="btn btn-primary w-100"
-              />
+                value= "Search"
+              />         
             </div>
           </div>
         </form>

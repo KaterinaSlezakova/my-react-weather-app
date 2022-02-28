@@ -1,9 +1,8 @@
 .Details ul {
-  font-size: 12px;
-  line-height: 16px;
-  margin: 10px 0 0 0px;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 25px;
   color: #70757a;
   list-style: none;
-  padding-left: 0;
-  
+  padding-left: 0; 
 }

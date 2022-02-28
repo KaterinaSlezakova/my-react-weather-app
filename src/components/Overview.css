@@ -1,18 +1,20 @@
 .Overview h3 {
-  font-size: 22px;
-  line-height: 26px;
-  font-weight: 400;
+  font-size: 50px;
+  line-height: 45px;
+  font-weight: 500;
   color: #202124;
   margin: 0px;
+  font-family: "Poppins", sans-serif;
 }
 .Overview ul {
   list-style: none;
-  padding: 0;
+  padding-top: 10px;
+  padding-left: 0;
   font-size: 16px;
   color: #70757a;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 20px;
 }
 .Overview {
-  margin: 5px 5px 0 0;
+  margin-right: 5px;
 }
