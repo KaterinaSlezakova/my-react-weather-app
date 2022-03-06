@@ -7,7 +7,7 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="row">
-        <div className="col-5">
+        <div className="col-6 text-center">
           <CurrentTemp
             temperature={props.data.temperature}
             icon={props.data.icon}

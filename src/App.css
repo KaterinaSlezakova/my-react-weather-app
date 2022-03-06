@@ -6,7 +6,7 @@
 .App footer {
     font-size: 13px;
 }
-.bg {
+.base-background {
   animation: slide 3s ease-in-out infinite alternate;
   background-image: linear-gradient(
     -30deg,
@@ -23,12 +23,12 @@
   z-index: -5;
 }
 
-.bg2 {
+.background-primary-section {
   animation-direction: alternate-reverse;
   animation-duration: 4s;
 }
 
-.bg3 {
+.background-secondary-section {
   animation-duration: 5s;
 }
 

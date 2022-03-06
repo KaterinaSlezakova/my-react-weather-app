@@ -7,9 +7,9 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 export default function App() {
   return (
     <div className="App">
-      <div className="bg"></div>
-      <div className="bg bg2"></div>
-      <div className="bg bg3"></div>
+      <div className="base-background"></div>
+      <div className="background-primary-section"></div>
+      <div className="background-secondary-section"></div>
       <div className="container">
         <Weather defaultCity="Berlin" />
         <footer>
