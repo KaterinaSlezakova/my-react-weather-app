@@ -7,13 +7,14 @@ export default function DailyForecast({ coordinates }) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [coordinates]);
+
   function handleResponse(response) {
     setForecast(response.data.daily);
     setLoaded(true);
   }
-  useEffect(() => {
-    setLoaded(false);
-  }, [coordinates]);
 
   function searchData() {
     let apiKey = "c1237133a9907d473e77d2b6b0072a61";
