@@ -3,6 +3,7 @@ import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
 import DailyForecast from "./DailyForecast";
+import { FaSearch } from "react-icons/fa";
 
 import "./Weather.css";
 
@@ -40,26 +41,28 @@ export default function Weather({ defaultCity }) {
   }
 
   if (weatherData.loaded) {
-   
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-10">
               <input
                 onChange={handleCityChange}
                 type="search"
-                placeholder="Search a city"
+                placeholder="Search a city..."
                 className="form-control"
                 autoFocus="on"
               />
             </div>
-            <div className="col-3">
-              <input
+            <div className="col-2">
+              {/* < input
                 type="submit"
                 className="btn btn-primary w-100"
                 value= "Search"
-              />         
+              >    */}
+              <button className="btn btn-primary" type="submit">
+                <FaSearch />
+              </button>
             </div>
           </div>
         </form>
