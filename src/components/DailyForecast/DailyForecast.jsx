@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./DailyForecast.css";
 import axios from "axios";
-import ForecastOneDay from "./ForecastOneDay";
+import ForecastOneDay from "../ForecastOneDay";
 
 export default function DailyForecast({ coordinates }) {
   const [loaded, setLoaded] = useState(false);

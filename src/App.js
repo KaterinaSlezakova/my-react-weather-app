@@ -1,6 +1,6 @@
 import "./App.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Weather from "./components/Weather";
+import Weather from "./components/Weather/Weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -10,7 +10,7 @@ export default function App() {
       <div className="base-background"></div>
       <div className="background-primary-section"></div>
       <div className="background-secondary-section"></div>
-      <div className="container">
+      <div className="container-fluid">
         <Weather defaultCity="Berlin" />
         <footer>
           Coded by{" "}

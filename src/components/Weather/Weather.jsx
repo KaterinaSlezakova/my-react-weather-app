@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
-import DailyForecast from "./DailyForecast";
-import { FaSearch } from "react-icons/fa";
+import DailyForecast from "../DailyForecast/DailyForecast";
+import { FaSearch, FaLocationArrow } from "react-icons/fa";
 
 import "./Weather.css";
 
@@ -45,7 +45,7 @@ export default function Weather({ defaultCity }) {
       <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-10">
+            <div className="col-9">
               <input
                 onChange={handleCityChange}
                 type="search"
@@ -54,14 +54,14 @@ export default function Weather({ defaultCity }) {
                 autoFocus="on"
               />
             </div>
-            <div className="col-2">
-              {/* < input
-                type="submit"
-                className="btn btn-primary w-100"
-                value= "Search"
-              >    */}
+            <div className="col-1">
               <button className="btn btn-primary" type="submit">
                 <FaSearch />
+              </button>
+            </div>
+            <div className="col-1">
+              <button className="btn btn-warning" type="submit">
+                <FaLocationArrow />
               </button>
             </div>
           </div>

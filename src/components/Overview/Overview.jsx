@@ -1,5 +1,5 @@
 import React from "react";
-import FormattedDate from "./FormattedDate";
+import FormattedDate from "../FormattedDate";
 import "./Overview.css";
 
 export default function Overview( {city, time, description}) {

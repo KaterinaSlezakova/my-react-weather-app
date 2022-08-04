@@ -1,7 +1,7 @@
 .CurrentTemp {
     display: flex;
     height:100px;
-    margin-left: 20px;
+    margin-right: 40px; 
 }
 .CurrentTemp canvas {
     display: inline-block;
@@ -11,7 +11,7 @@
 .tempValue {
     font-size: 5vw;
     line-height: 60px;
-    padding-left: 10px;
+    padding-right: 30px;
     color: #202124;
     font-weight:400;
 }
