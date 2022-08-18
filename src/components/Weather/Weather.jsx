@@ -31,6 +31,7 @@ export default function Weather({ defaultCity }) {
       time: new Date(response.data.dt * 1000),
       sunrise: new Date(response.data.sys.sunrise * 1000),
       sunset: new Date(response.data.sys.sunset * 1000),
+      country: response.data.sys.country,
     });
   }
 
@@ -60,7 +61,7 @@ export default function Weather({ defaultCity }) {
               </button>
             </div>
             <div className="col-1">
-              <button className="btn btn-warning" type="submit">
+              <button className="btn btn-warning" type="button">
                 <FaLocationArrow />
               </button>
             </div>

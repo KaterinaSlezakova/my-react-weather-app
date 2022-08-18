@@ -1,32 +1,30 @@
 .CurrentTemp {
-    display: flex;
-    height:100px;
-    margin-right: 40px; 
+  height: 100px;
+  margin-right: 10px;
 }
 .CurrentTemp canvas {
-    display: inline-block;
-    margin-top: 5px;
+  display: inline-block;
+  margin-top: 5px;
+  display: inline-flex;
 }
 
 .tempValue {
-    font-size: 5vw;
-    line-height: 60px;
-    padding-right: 30px;
-    color: #202124;
-    font-weight:400;
+  font-size: 50px;
+  line-height: 30px;
+  padding-right: 10px;
+  color: #202124;
+  font-weight: 500;
 }
 .units {
-    font-size: 17px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 6px;
+  font-size: 20px;
+  line-height: 24px;
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 10px;
 }
 .units a {
-    color:black;
-    text-decoration: none;
+  text-decoration: none;
 }
 .units a :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
