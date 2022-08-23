@@ -11,6 +11,37 @@ export default function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
   const [city, setCity] = useState(defaultCity);
 
+  const handleCurrentPositionCityResponse = (response) => {
+    setWeatherData({
+      loaded: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      icon: response.data.weather[0].icon,
+      time: new Date(response.data.dt * 1000),
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000),
+      country: response.data.sys.country,
+    });
+  };
+
+  const handlePosition = (position) => {
+    let lon = position.coords.longitude;
+    let lat = position.coords.latitude;
+    let apiKey = "c1237133a9907d473e77d2b6b0072a61";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleCurrentPositionCityResponse);
+  };
+
+  const getCurrentPosition = (e) => {
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(handlePosition);
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     search(city);
@@ -44,7 +75,7 @@ export default function Weather({ defaultCity }) {
   if (weatherData.loaded) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="row">
             <div className="col-9">
               <input
@@ -56,12 +87,20 @@ export default function Weather({ defaultCity }) {
               />
             </div>
             <div className="col-1">
-              <button className="btn btn-primary" type="submit">
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={handleSubmit}
+              >
                 <FaSearch />
               </button>
             </div>
             <div className="col-1">
-              <button className="btn btn-warning" type="button">
+              <button
+                className="btn btn-warning"
+                type="button"
+                onClick={getCurrentPosition}
+              >
                 <FaLocationArrow />
               </button>
             </div>
