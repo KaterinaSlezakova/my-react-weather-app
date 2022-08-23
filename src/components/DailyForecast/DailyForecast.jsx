@@ -31,9 +31,12 @@ export default function DailyForecast({ coordinates }) {
         <div className="container">
           <div className="row">
             {forecast.map(function (dailyForecast, index) {
-              if (index < 5) {
+              if (index < 6) {
                 return (
-                  <div className="col Forecast-days" key={index}>
+                  <div
+                    className="col Forecast-days d-flex justify-content-center"
+                    key={index}
+                  >
                     <ForecastOneDay data={dailyForecast} />
                   </div>
                 );

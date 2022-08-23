@@ -77,7 +77,7 @@ export default function Weather({ defaultCity }) {
       <div className="Weather">
         <form>
           <div className="row">
-            <div className="col-9">
+            <div className="col-8">
               <input
                 onChange={handleCityChange}
                 type="search"
@@ -86,6 +86,7 @@ export default function Weather({ defaultCity }) {
                 autoFocus="on"
               />
             </div>
+
             <div className="col-1">
               <button
                 className="btn btn-primary"

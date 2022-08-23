@@ -7,6 +7,9 @@
   margin-top: 5px;
   display: inline-flex;
 }
+.CurrentTemp li {
+  list-style-type: none;
+}
 
 .tempValue {
   font-size: 50px;
@@ -28,3 +31,4 @@
 .units a :hover {
   cursor: pointer;
 }
+
