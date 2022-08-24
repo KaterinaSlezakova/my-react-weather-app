@@ -29,7 +29,7 @@ export default function WeatherInfo(props) {
         className="btn btn-light btn-sm details"
         onClick={() => setShowDetails(!showDetails)}
       >
-        {showDetails ? "Hide details..." : "More details..."}
+        {showDetails ? "Hide details..." : "Show details..."}
       </button>
       {showDetails && (
         <Details
