@@ -9,7 +9,7 @@ export default function Details(props) {
 
   return (
     <div className="Details">
-      <div className="row text-start">
+      <div className="row">
         <div className="col-4">
           <ul>
             <li>Humidity: {props.humidity} %</li>

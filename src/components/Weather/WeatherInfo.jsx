@@ -25,20 +25,25 @@ export default function WeatherInfo(props) {
           />
         </div>
       </div>
-      <button
-        className="btn btn-light btn-sm details"
-        onClick={() => setShowDetails(!showDetails)}
-      >
-        {showDetails ? "Hide details..." : "Show details..."}
-      </button>
-      {showDetails && (
-        <Details
-          wind={props.data.wind}
-          humidity={props.data.humidity}
-          sunrise={props.data.sunrise}
-          sunset={props.data.sunset}
-        />
-      )}
+      <div className="dropdown">
+        <button
+          className="btn btn-light btn-sm dropdown-toggle details"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          onClick={() => setShowDetails(!showDetails)}
+        >
+          {showDetails ? "Hide details..." : "Show details..."}
+        </button>
+        {showDetails && (
+          <Details
+            wind={props.data.wind}
+            humidity={props.data.humidity}
+            sunrise={props.data.sunrise}
+            sunset={props.data.sunset}
+          />
+        )}
+      </div>
     </div>
   );
 }

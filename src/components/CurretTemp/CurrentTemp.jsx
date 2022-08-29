@@ -5,8 +5,8 @@ import WeatherTemperature from "../WeatherTemperature";
 export default function CurrentTemp(props) {
   return (
     <div className="CurrentTemp">
-      <div className="row">
-        <div className="col-12 d-flex justify-content-start">
+      <div className="row container">
+        <div className="col-12 d-inline-flex justify-content-start">
           <ul>
             <li>
               <WeatherIcon code={props.icon} size={80} />

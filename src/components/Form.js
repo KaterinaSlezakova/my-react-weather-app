@@ -26,7 +26,7 @@ const Form = ({ handleCityChange, handleSubmit, getCurrentPosition }) => {
           </div>
           <div className="col-1">
             <button
-              className="btn btn-warning"
+              className="btn btn-secondary"
               type="button"
               onClick={getCurrentPosition}
             >
