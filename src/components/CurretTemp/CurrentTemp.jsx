@@ -1,3 +1,4 @@
+import React from "react";
 import "./CurrentTemp.css";
 import WeatherIcon from "../WeatherIcon";
 import WeatherTemperature from "../WeatherTemperature";

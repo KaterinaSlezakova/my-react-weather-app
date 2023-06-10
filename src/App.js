@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Weather from "./components/Weather/Weather";
@@ -17,7 +18,7 @@ export default function App() {
           <a
             href="https://www.linkedin.com/in/kslezakova/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Katerina Slezakova <FontAwesomeIcon icon={faLinkedin} />
           </a>{" "}
@@ -25,7 +26,7 @@ export default function App() {
           <a
             href="https://github.com/KaterinaSlezakova/my-react-weather-app"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             open sourced on <FontAwesomeIcon icon={faGithub} />
           </a>{" "}
