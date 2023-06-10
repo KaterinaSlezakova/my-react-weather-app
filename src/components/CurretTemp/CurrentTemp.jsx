@@ -1,6 +1,8 @@
-import "./CurrentTemp.css";
+import React from "react";
+
 import WeatherIcon from "../WeatherIcon";
 import WeatherTemperature from "../WeatherTemperature";
+import "./CurrentTemp.css";
 
 export default function CurrentTemp(props) {
   return (
