@@ -1,0 +1,32 @@
+.CurrentTemp {
+    display: flex;
+    height:100px;
+    margin-left: 20px;
+}
+.CurrentTemp canvas {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.tempValue {
+    font-size: 5vw;
+    line-height: 60px;
+    padding-left: 10px;
+    color: #202124;
+    font-weight:400;
+}
+.units {
+    font-size: 17px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 6px;
+}
+.units a {
+    color:black;
+    text-decoration: none;
+}
+.units a :hover {
+    cursor: pointer;
+}
+

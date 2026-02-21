@@ -1,0 +1,77 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { BallTriangle } from "react-loader-spinner";
+import WeatherInfo from "./WeatherInfo";
+import DailyForecast from "./DailyForecast";
+import { FaSearch } from "react-icons/fa";
+
+import "./Weather.css";
+
+export default function Weather({ defaultCity }) {
+  const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [city, setCity] = useState(defaultCity);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    search(city);
+  }
+  function handleCityChange(e) {
+    setCity(e.target.value);
+  }
+  function handleResponse(response) {
+    setWeatherData({
+      loaded: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      icon: response.data.weather[0].icon,
+      time: new Date(response.data.dt * 1000),
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000),
+    });
+  }
+
+
+
+  if (weatherData.loaded) {
+    return (
+      <div className="Weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-10">
+              <input
+                onChange={handleCityChange}
+                type="search"
+                placeholder="Search a city..."
+                className="form-control"
+                autoFocus="on"
+              />
+            </div>
+            <div className="col-2">
+              {/* < input
+                type="submit"
+                className="btn btn-primary w-100"
+                value= "Search"
+              >    */}
+              <button className="btn btn-primary" type="submit">
+                <FaSearch />
+              </button>
+            </div>
+          </div>
+        </form>
+        <WeatherInfo data={weatherData} />
+        <DailyForecast coordinates={weatherData.coordinates} />
+      </div>
+    );
+  } else {
+    search();
+    return (
+      <div>
+        <BallTriangle color="#0B5ED7" height={80} width={80} />
+      </div>
+    );
+  }
+}
