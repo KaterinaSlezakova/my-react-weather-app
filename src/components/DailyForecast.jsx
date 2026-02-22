@@ -4,6 +4,7 @@ import axios from "axios";
 import ForecastOneDay from "./ForecastOneDay";
 
 export default function DailyForecast({ coordinates }) {
+  const apiKey = process.env.REACT_APP_WEATHER_KEY;
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
@@ -17,7 +18,6 @@ export default function DailyForecast({ coordinates }) {
   }
 
   function searchData() {
-    let apiKey = "c1237133a9907d473e77d2b6b0072a61";
     let latitude = coordinates.lat;
     let longitude = coordinates.lon;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
