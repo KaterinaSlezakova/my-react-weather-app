@@ -8,9 +8,10 @@ import Form from "../Form";
 import "./Weather.css";
 
 export default function Weather({ defaultCity }) {
+  const apiKey = process.env.REACT_APP_WEATHER_KEY;
   const [weatherData, setWeatherData] = useState({ loaded: false });
   const [city, setCity] = useState(defaultCity);
-
+  
   const handleCurrentPositionCityResponse = (response) => {
     setWeatherData({
       loaded: true,
@@ -31,9 +32,7 @@ export default function Weather({ defaultCity }) {
   const handlePosition = (position) => {
     let lon = position.coords.longitude;
     let lat = position.coords.latitude;
-    let apiKey = "c1237133a9907d473e77d2b6b0072a61";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
     axios.get(apiUrl).then(handleCurrentPositionCityResponse);
   };
 
@@ -67,7 +66,6 @@ export default function Weather({ defaultCity }) {
   }
 
   function search() {
-    const apiKey = "c1237133a9907d473e77d2b6b0072a61";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
