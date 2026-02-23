@@ -5,28 +5,39 @@ import ForecastOneDay from "../ForecastOneDay";
 
 export default function DailyForecast({ coordinates }) {
   const apiKey = process.env.REACT_APP_WEATHER_KEY;
-  const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoaded(false);
-  }, [coordinates]);
+      if (!coordinates) return;
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl)
+      .then(handleResponse)
+      .catch(() => {
+        setError("Missing weather data.");
+      });
+
+  }, [coordinates, apiKey]);
+//setLoaded(false);
+ // }, [coordinates]);
 
   function handleResponse(response) {
     const dailyData = response.data.list.filter(item => item.dt_txt.includes("12:00:00"));
-console.log(dailyData);
+  //console.log(dailyData);
+
     setForecast(dailyData);
-    setLoaded(true);
+  }
+if (error) {
+    return <div className="DailyForecast">{error}</div>;
+  }
+  if (!forecast) {
+
+    return <div className="DailyForecast">Loading...</div>;
   }
 
-  function searchData() {
-    let latitude = coordinates.lat;
-    let longitude = coordinates.lon;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-
-  if (loaded) {
+  if (forecast) {
     return (
       <div className="DailyForecast">
         <div className="container">
@@ -49,8 +60,5 @@ console.log(dailyData);
         </div>
       </div>
     );
-  } else {
-    searchData();
-    return null;
-  }
+  } 
 }
