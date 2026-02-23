@@ -20,8 +20,8 @@ export default function DailyForecast({ coordinates }) {
   function searchData() {
     let latitude = coordinates.lat;
     let longitude = coordinates.lon;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    console.log (apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
 
