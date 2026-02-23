@@ -13,7 +13,9 @@ export default function DailyForecast({ coordinates }) {
   }, [coordinates]);
 
   function handleResponse(response) {
-    setForecast(response.data.daily);
+    const dailyData = response.data.list.filter(item => item.dt_txt.includes("12:00:00"));
+console.log(dailyData);
+    setForecast(dailyData);
     setLoaded(true);
   }
 
@@ -21,7 +23,6 @@ export default function DailyForecast({ coordinates }) {
     let latitude = coordinates.lat;
     let longitude = coordinates.lon;
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    console.log (apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
 
