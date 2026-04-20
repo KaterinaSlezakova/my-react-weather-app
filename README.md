@@ -1,5 +1,5 @@
 # 🌤️ Weather App
-*Web application that displays current weather and a multi-day forecast for any city in the world.*
+*Web application that displays current weather and a multi-day forecast for any city in the world. Coded in VS Code.*
 
 ![App Screenshot](./src/img/screenshot.png)
 
